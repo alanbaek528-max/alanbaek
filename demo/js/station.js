@@ -3,92 +3,97 @@
 
   var JOBS = [
     {
-      id: "BRK-2401",
-      name: "엔진 마운트 브라켓",
-      material: "AL6061-T6",
-      process: "밀링",
-      lot: "26A-1042",
+      id: "CCL-345",
+      name: "345kV 철심 클램프",
+      voltage: "345kV",
+      material: "SS400",
+      process: "용접 후 가공",
+      lot: "26T-3451",
       rev: "C",
-      metal: 0xd5dde6,
-      model: "bracket",
+      metal: 0xb5bdc6,
+      model: "clamp",
       features: [
-        { name: "전체 길이", nominal: 120, tol: 0.1, tolType: "bilateral", measured: 120.042, vary: 0.012, seed: 0.3 },
-        { name: "전체 폭", nominal: 45, tol: 0.08, tolType: "bilateral", measured: 44.971, vary: 0.01, seed: 1.1 },
-        { name: "두께", nominal: 6, tol: 0.08, tolType: "bilateral", measured: 6.018, vary: 0.01, seed: 2.2 },
-        { name: "구멍 직경", nominal: 8, tol: 0.05, tolType: "bilateral", measured: 8.021, vary: 0.008, seed: 2.8 },
-        { name: "구멍 피치", nominal: 80, tol: 0.1, tolType: "bilateral", measured: 80.055, vary: 0.012, seed: 3.6 },
-        { name: "평탄도", nominal: 0, tol: 0.05, tolType: "max", measured: 0.028, vary: 0.008, seed: 4.2 }
+        { name: "클램프 길이", nominal: 1480, tol: 0.1, tolType: "bilateral", measured: 1480.042, vary: 0.012, seed: 0.3 },
+        { name: "클램프 폭", nominal: 220, tol: 0.08, tolType: "bilateral", measured: 219.971, vary: 0.01, seed: 1.1 },
+        { name: "판 두께", nominal: 32, tol: 0.08, tolType: "bilateral", measured: 32.018, vary: 0.01, seed: 2.2 },
+        { name: "체결홀 직경", nominal: 26, tol: 0.05, tolType: "bilateral", measured: 26.021, vary: 0.008, seed: 2.8 },
+        { name: "홀 피치", nominal: 420, tol: 0.1, tolType: "bilateral", measured: 420.055, vary: 0.012, seed: 3.6 },
+        { name: "장착면 평탄도", nominal: 0, tol: 0.05, tolType: "max", measured: 0.028, vary: 0.008, seed: 4.2 }
       ]
     },
     {
-      id: "HSG-1187",
-      name: "기어박스 하우징",
-      material: "AC4C",
-      process: "보어 가공",
-      lot: "26A-1187",
+      id: "TRT-765",
+      name: "765kV 부싱 터렛",
+      voltage: "765kV",
+      material: "SS400",
+      process: "용접·가공",
+      lot: "26T-7658",
       rev: "B",
-      metal: 0xc8c2b8,
-      model: "housing",
+      metal: 0xaeb6be,
+      model: "turret",
       features: [
-        { name: "외곽 폭", nominal: 180, tol: 0.15, tolType: "bilateral", measured: 180.062, vary: 0.012, seed: 0.5 },
-        { name: "외곽 높이", nominal: 120, tol: 0.15, tolType: "bilateral", measured: 119.941, vary: 0.012, seed: 1.4 },
-        { name: "보어 직경", nominal: 62, tol: 0.04, tolType: "bilateral", measured: 62.078, vary: 0.008, seed: 2.1 },
-        { name: "보어 깊이", nominal: 48, tol: 0.1, tolType: "bilateral", measured: 47.966, vary: 0.01, seed: 3.3 },
+        { name: "플랜지 폭", nominal: 640, tol: 0.15, tolType: "bilateral", measured: 640.062, vary: 0.012, seed: 0.5 },
+        { name: "플랜지 높이", nominal: 480, tol: 0.15, tolType: "bilateral", measured: 479.941, vary: 0.012, seed: 1.4 },
+        { name: "포켓 내경", nominal: 310, tol: 0.04, tolType: "bilateral", measured: 310.078, vary: 0.008, seed: 2.1 },
+        { name: "포켓 깊이", nominal: 220, tol: 0.1, tolType: "bilateral", measured: 219.966, vary: 0.01, seed: 3.3 },
         { name: "장착면 평탄도", nominal: 0, tol: 0.04, tolType: "max", measured: 0.033, vary: 0.004, seed: 4.0 },
-        { name: "볼트 피치", nominal: 140, tol: 0.12, tolType: "bilateral", measured: 140.044, vary: 0.012, seed: 5.2 }
+        { name: "볼트 피치원", nominal: 520, tol: 0.12, tolType: "bilateral", measured: 520.044, vary: 0.012, seed: 5.2 }
       ]
     },
     {
-      id: "FLG-5520",
-      name: "배관 플랜지",
-      material: "SUS304",
-      process: "선삭",
-      lot: "26B-5520",
+      id: "BSF-345",
+      name: "345kV 부싱 플랜지",
+      voltage: "345kV",
+      material: "A105",
+      process: "단조·선삭",
+      lot: "26T-3458",
       rev: "A",
-      metal: 0xbfc8d1,
+      metal: 0xd5dde6,
       model: "flange",
       features: [
-        { name: "외경", nominal: 150, tol: 0.12, tolType: "bilateral", measured: 149.968, vary: 0.012, seed: 0.2 },
-        { name: "내경", nominal: 80, tol: 0.08, tolType: "bilateral", measured: 80.021, vary: 0.01, seed: 1.3 },
-        { name: "두께", nominal: 18, tol: 0.1, tolType: "bilateral", measured: 18.037, vary: 0.01, seed: 2.5 },
-        { name: "피치원 직경", nominal: 120, tol: 0.1, tolType: "bilateral", measured: 120.018, vary: 0.012, seed: 3.2 },
-        { name: "볼트홀 직경", nominal: 12, tol: 0.05, tolType: "bilateral", measured: 11.988, vary: 0.008, seed: 4.1 },
-        { name: "실링면 평탄도", nominal: 0, tol: 0.03, tolType: "max", measured: 0.019, vary: 0.004, seed: 5.1 }
+        { name: "외경", nominal: 540, tol: 0.12, tolType: "bilateral", measured: 539.968, vary: 0.012, seed: 0.2 },
+        { name: "내경", nominal: 280, tol: 0.08, tolType: "bilateral", measured: 280.021, vary: 0.01, seed: 1.3 },
+        { name: "두께", nominal: 36, tol: 0.1, tolType: "bilateral", measured: 36.037, vary: 0.01, seed: 2.5 },
+        { name: "피치원 직경", nominal: 460, tol: 0.1, tolType: "bilateral", measured: 460.018, vary: 0.012, seed: 3.2 },
+        { name: "볼트홀 직경", nominal: 22, tol: 0.05, tolType: "bilateral", measured: 21.988, vary: 0.008, seed: 4.1 },
+        { name: "가스켓면 평탄도", nominal: 0, tol: 0.03, tolType: "max", measured: 0.019, vary: 0.004, seed: 5.1 }
       ]
     },
     {
-      id: "CVR-0933",
-      name: "모터 엔드커버",
-      material: "ADC12",
-      process: "가공",
-      lot: "26B-0933",
+      id: "WPR-345",
+      name: "345kV 권선 누름링",
+      voltage: "345kV",
+      material: "SS275",
+      process: "선삭",
+      lot: "26T-3454",
       rev: "D",
-      metal: 0xb7bcc4,
-      model: "cover",
+      metal: 0xc5ccd4,
+      model: "ring",
       features: [
-        { name: "외경", nominal: 96, tol: 0.08, tolType: "bilateral", measured: 96.071, vary: 0.015, seed: 4.4 },
-        { name: "높이", nominal: 28, tol: 0.1, tolType: "bilateral", measured: 27.984, vary: 0.01, seed: 1.7 },
-        { name: "파일럿 직경", nominal: 72, tol: 0.04, tolType: "bilateral", measured: 71.982, vary: 0.006, seed: 2.4 },
-        { name: "파일럿 깊이", nominal: 4, tol: 0.05, tolType: "bilateral", measured: 4.012, vary: 0.008, seed: 3.4 },
-        { name: "볼트 피치원", nominal: 84, tol: 0.08, tolType: "bilateral", measured: 84.019, vary: 0.01, seed: 0.8 },
-        { name: "단차 평탄도", nominal: 0, tol: 0.04, tolType: "max", measured: 0.027, vary: 0.005, seed: 5.6 }
+        { name: "외경", nominal: 640, tol: 0.08, tolType: "bilateral", measured: 640.071, vary: 0.015, seed: 4.4 },
+        { name: "두께", nominal: 48, tol: 0.1, tolType: "bilateral", measured: 47.984, vary: 0.01, seed: 1.7 },
+        { name: "내경", nominal: 410, tol: 0.04, tolType: "bilateral", measured: 409.982, vary: 0.006, seed: 2.4 },
+        { name: "단차 깊이", nominal: 12, tol: 0.05, tolType: "bilateral", measured: 12.012, vary: 0.008, seed: 3.4 },
+        { name: "볼트 피치원", nominal: 560, tol: 0.08, tolType: "bilateral", measured: 560.019, vary: 0.01, seed: 0.8 },
+        { name: "평면 평탄도", nominal: 0, tol: 0.04, tolType: "max", measured: 0.027, vary: 0.005, seed: 5.6 }
       ]
     },
     {
-      id: "SFT-7714",
-      name: "구동축",
-      material: "SCM440",
-      process: "연삭",
-      lot: "26C-7714",
+      id: "HVL-765",
+      name: "765kV 고압 리드",
+      voltage: "765kV",
+      material: "C1100",
+      process: "인발·가공",
+      lot: "26T-7652",
       rev: "C",
-      metal: 0x9aa3ad,
-      model: "shaft",
+      metal: 0xc47b45,
+      model: "lead",
       features: [
-        { name: "전장", nominal: 320, tol: 0.2, tolType: "bilateral", measured: 320.084, vary: 0.015, seed: 0.6 },
-        { name: "저널 A 직경", nominal: 40, tol: 0.021, tolType: "bilateral", measured: 40.006, vary: 0.006, seed: 1.5 },
-        { name: "저널 B 직경", nominal: 35, tol: 0.021, tolType: "bilateral", measured: 34.968, vary: 0.006, seed: 2.7 },
-        { name: "단차 위치", nominal: 86, tol: 0.05, tolType: "bilateral", measured: 86.061, vary: 0.006, seed: 3.8 },
-        { name: "키홈 폭", nominal: 8, tol: 0.03, tolType: "bilateral", measured: 8.011, vary: 0.006, seed: 4.6 },
+        { name: "전장", nominal: 2450, tol: 0.2, tolType: "bilateral", measured: 2450.084, vary: 0.015, seed: 0.6 },
+        { name: "단자 A 직경", nominal: 60, tol: 0.021, tolType: "bilateral", measured: 60.006, vary: 0.006, seed: 1.5 },
+        { name: "단자 B 직경", nominal: 50, tol: 0.021, tolType: "bilateral", measured: 49.968, vary: 0.006, seed: 2.7 },
+        { name: "단차 위치", nominal: 380, tol: 0.05, tolType: "bilateral", measured: 380.061, vary: 0.006, seed: 3.8 },
+        { name: "단자 폭", nominal: 32, tol: 0.03, tolType: "bilateral", measured: 32.011, vary: 0.006, seed: 4.6 },
         { name: "진원도", nominal: 0, tol: 0.015, tolType: "max", measured: 0.011, vary: 0.002, seed: 5.4 }
       ]
     }
@@ -313,41 +318,45 @@
     return Math.sin(x * 4.2 + y * 2.4) * 0.016 + Math.cos(z * 6.1) * 0.008;
   }
 
-  function buildBracket(group, metal) {
+  function buildClamp(group, metal) {
     var base = new THREE.Shape();
-    base.moveTo(-1.15, -0.46);
-    base.lineTo(1.15, -0.46);
-    base.lineTo(1.15, 0.46);
-    base.lineTo(-1.15, 0.46);
+    base.moveTo(-1.55, -0.36);
+    base.lineTo(1.55, -0.36);
+    base.lineTo(1.55, 0.36);
+    base.lineTo(-1.55, 0.36);
     base.closePath();
-    addHole(base, -0.62, 0, 0.12);
-    addHole(base, 0.62, 0, 0.12);
-    var baseMesh = addPartMesh(group, extrude(base, 0.14), metal, mildDev);
+    [-1.1, -0.36, 0.36, 1.1].forEach(function (x) { addHole(base, x, 0, 0.09); });
+    var baseMesh = addPartMesh(group, extrude(base, 0.12), metal, mildDev);
     baseMesh.rotation.x = Math.PI / 2;
 
     var upright = new THREE.Shape();
-    upright.moveTo(-1.15, -0.08);
-    upright.lineTo(1.15, -0.08);
-    upright.lineTo(1.15, 0.82);
-    upright.lineTo(-1.15, 0.82);
+    upright.moveTo(-1.55, 0);
+    upright.lineTo(1.55, 0);
+    upright.lineTo(1.55, 0.72);
+    upright.lineTo(-1.55, 0.72);
     upright.closePath();
-    addHole(upright, -0.62, 0.36, 0.1);
-    addHole(upright, 0.62, 0.36, 0.1);
-    var uprightMesh = addPartMesh(group, extrude(upright, 0.14), metal, mildDev);
-    uprightMesh.position.set(0, 0.52, -0.4);
+    [-1.1, 1.1].forEach(function (x) { addHole(upright, x, 0.38, 0.08); });
+    var uprightMesh = addPartMesh(group, extrude(upright, 0.12), metal, mildDev);
+    uprightMesh.position.set(0, 0.46, -0.3);
   }
 
-  function buildHousing(group, metal) {
-    var shape = roundedRect(2.15, 1.5, 0.14);
+  function turretDeviation(x, y) {
+    var radius = Math.hypot(x, y);
+    if (radius > 0.3 && radius < 0.52) return 0.14;
+    return Math.sin(x * 5.5) * Math.cos(y * 4.4) * 0.012;
+  }
+
+  function buildTurret(group, metal) {
+    var shape = roundedRect(2.15, 1.5, 0.12);
     addHole(shape, 0, 0, 0.4);
     [[0.74, 0.48], [0.74, -0.48], [-0.74, 0.48], [-0.74, -0.48]].forEach(function (point) {
       addHole(shape, point[0], point[1], 0.07);
     });
-    addPartMesh(group, extrude(shape, 0.78), metal, function (x, y) {
-      var radius = Math.hypot(x, y);
-      if (radius > 0.3 && radius < 0.52) return 0.14;
-      return Math.sin(x * 5.5) * Math.cos(y * 4.4) * 0.012;
-    });
+    addPartMesh(group, extrude(shape, 0.62), metal, turretDeviation);
+    var neck = circleShape(0.55);
+    addHole(neck, 0, 0, 0.4);
+    var neckMesh = addPartMesh(group, extrude(neck, 0.36), metal, turretDeviation);
+    neckMesh.position.z = 0.48;
   }
 
   function layFlat(mesh) {
@@ -357,9 +366,9 @@
   function buildFlange(group, metal) {
     var shape = circleShape(1.05);
     addHole(shape, 0, 0, 0.46);
-    for (var i = 0; i < 8; i++) {
-      var angle = (i / 8) * Math.PI * 2;
-      addHole(shape, Math.cos(angle) * 0.76, Math.sin(angle) * 0.76, 0.07);
+    for (var i = 0; i < 12; i++) {
+      var angle = (i / 12) * Math.PI * 2;
+      addHole(shape, Math.cos(angle) * 0.78, Math.sin(angle) * 0.78, 0.055);
     }
     layFlat(addPartMesh(group, extrude(shape, 0.16), metal, function (x, y, z) {
       return Math.sin(Math.hypot(x, y) * 8 + z) * 0.012;
@@ -371,23 +380,24 @@
     seal.position.y = 0.11;
   }
 
-  function buildCover(group, metal) {
-    var shape = circleShape(0.98);
-    for (var i = 0; i < 6; i++) {
-      var angle = (i / 6) * Math.PI * 2 + 0.25;
-      addHole(shape, Math.cos(angle) * 0.7, Math.sin(angle) * 0.7, 0.065);
+  function buildPressRing(group, metal) {
+    var shape = circleShape(1.05);
+    addHole(shape, 0, 0, 0.62);
+    for (var i = 0; i < 8; i++) {
+      var angle = (i / 8) * Math.PI * 2 + 0.2;
+      addHole(shape, Math.cos(angle) * 0.84, Math.sin(angle) * 0.84, 0.055);
     }
-    layFlat(addPartMesh(group, extrude(shape, 0.14), metal, function (x, y) {
-      return Math.hypot(x, y) > 0.75 ? 0.075 : Math.sin(x * 6.5) * 0.01;
+    layFlat(addPartMesh(group, extrude(shape, 0.12), metal, function (x, y) {
+      return Math.hypot(x, y) > 0.9 ? 0.075 : Math.sin(x * 6.5) * 0.01;
     }));
-    var bossShape = circleShape(0.4);
-    addHole(bossShape, 0, 0, 0.16);
-    var boss = addPartMesh(group, extrude(bossShape, 0.22), metal, function () { return 0.012; });
-    layFlat(boss);
-    boss.position.y = 0.18;
+    var rib = circleShape(0.74);
+    addHole(rib, 0, 0, 0.62);
+    var ribMesh = addPartMesh(group, extrude(rib, 0.08), metal, function () { return 0.012; });
+    layFlat(ribMesh);
+    ribMesh.position.y = 0.1;
   }
 
-  function buildShaft(group, metal) {
+  function buildLead(group, metal) {
     var points = [
       new THREE.Vector2(0.02, -1.2),
       new THREE.Vector2(0.16, -1.2),
@@ -407,19 +417,19 @@
       if (Math.abs(y + 0.62) < 0.09) return 0.13;
       return Math.sin(y * 7 + x) * 0.01;
     });
-    var key = addPartMesh(group, new THREE.BoxGeometry(0.07, 0.32, 0.05), metal, function () { return 0.01; });
-    key.position.set(0.24, 0.24, 0);
+    var pad = addPartMesh(group, new THREE.BoxGeometry(0.1, 0.36, 0.07), metal, function () { return 0.012; });
+    pad.position.set(0.22, 0.28, 0);
     group.rotation.z = Math.PI / 2;
   }
 
   function buildModel(job) {
     var group = new THREE.Group();
     group.name = job.id;
-    if (job.model === "bracket") buildBracket(group, job.metal);
-    else if (job.model === "housing") buildHousing(group, job.metal);
+    if (job.model === "clamp") buildClamp(group, job.metal);
+    else if (job.model === "turret") buildTurret(group, job.metal);
     else if (job.model === "flange") buildFlange(group, job.metal);
-    else if (job.model === "cover") buildCover(group, job.metal);
-    else buildShaft(group, job.metal);
+    else if (job.model === "ring") buildPressRing(group, job.metal);
+    else buildLead(group, job.metal);
     seat(group);
     return group;
   }
@@ -793,7 +803,7 @@
     var scanning = state.scanningJob === job.id && sess.phase === "scanning";
     el.vpName.textContent = job.name;
     el.vpCode.textContent = job.id;
-    el.partMeta.textContent = "도면 " + job.id + " · Rev " + job.rev + " · 재질 " + job.material +
+    el.partMeta.textContent = job.voltage + " · 도면 " + job.id + " · Rev " + job.rev + " · 재질 " + job.material +
       " · 공정 " + job.process + " · 로트 " + job.lot;
 
     var chip = statusOf(job.id);
