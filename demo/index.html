@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>초고압 변압기 치수 검사</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1218'/%3E%3Crect x='5' y='7' width='22' height='14' rx='2' fill='none' stroke='%233dbeff' stroke-width='1.6'/%3E%3Cpath d='M7 14h18' stroke='%23ff5a6a' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/station.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header panel">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="6" width="26" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+          <path d="M6 14h20" stroke="#ff5d6c" stroke-width="1.5"></path>
+          <path d="M7 26h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="23" cy="26" r="2" fill="#1ed98a"></circle>
+        </svg>
+        <div>
+          <p class="brand-kicker">초고압 변압기 · 부품 입고 검사</p>
+          <h1>치수 검사 스테이션</h1>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="plate">TR-01</span>
+        <span class="meta-block"><span class="meta-k">스캐너</span><span class="meta-v">SIM-SCAN 08</span></span>
+        <span class="meta-block"><span class="meta-k">작업자</span><span class="meta-v">박서연</span></span>
+        <span class="meta-block"><span class="meta-k">교대</span><span class="meta-v">주간 A</span></span>
+        <time id="clock" class="clock num">--:--:--</time>
+      </div>
+    </header>
+
+    <aside class="jobs panel">
+      <div class="panel-label">
+        <h2>검사 작업</h2>
+        <span id="job-count" class="count">5건</span>
+      </div>
+      <div id="job-list" class="job-list" role="listbox" aria-label="검사 작업"></div>
+      <p class="jobs-note">작업을 누르면 형상과 기준 치수가 바뀝니다.</p>
+    </aside>
+
+    <section class="viewport panel" aria-label="3D 스캔 뷰">
+      <div class="vp-toolbar">
+        <div class="vp-id">
+          <strong id="vp-name">형상 불러오는 중</strong>
+          <span id="vp-code" class="num"></span>
+          <span id="state-chip" class="chip">대기</span>
+        </div>
+        <div class="vp-actions">
+          <button type="button" id="btn-reset" class="btn btn-ghost">시점 초기화</button>
+          <button type="button" id="btn-scan" class="btn btn-scan">스캔 시작</button>
+          <button type="button" id="btn-rescan" class="btn btn-ghost" disabled>재검사</button>
+          <button type="button" id="btn-confirm" class="btn btn-confirm" disabled>판정 확정</button>
+        </div>
+      </div>
+      <div id="stage">
+        <p id="webgl-error" class="webgl-error" hidden></p>
+        <aside id="verdict" class="verdict" aria-live="polite">
+          <p class="kicker">종합 판정</p>
+          <p id="verdict-value" class="verdict-value">대기</p>
+          <p id="verdict-detail" class="verdict-detail">스캔 전</p>
+          <p id="verdict-cycle" class="verdict-cycle"></p>
+          <p id="stamp" class="stamp" hidden>확정</p>
+        </aside>
+        <div class="legend" aria-hidden="true">
+          <div class="legend-top">
+            <span>편차 컬러맵</span>
+            <span class="num">mm</span>
+          </div>
+          <div class="legend-bar"></div>
+          <div class="legend-scale num">
+            <span>-0.15</span>
+            <span>0</span>
+            <span>+0.15</span>
+          </div>
+        </div>
+        <div id="scan-widget" class="scan-widget" hidden>
+          <div class="scan-widget-top">
+            <span id="scan-phase">표면 데이터 수집</span>
+            <span id="scan-pct" class="num">0%</span>
+          </div>
+          <div class="bar"><div id="scan-bar"></div></div>
+        </div>
+        <p class="hint">드래그로 회전 · 휠로 확대</p>
+        <div id="toast" class="toast" role="status"></div>
+      </div>
+    </section>
+
+    <section class="table-panel panel" aria-label="측정 결과">
+      <div class="table-head">
+        <div>
+          <h2>측정 결과</h2>
+          <p id="part-meta"></p>
+        </div>
+        <p id="table-verdict" class="table-verdict">대기</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">항목</th>
+              <th scope="col">기준값</th>
+              <th scope="col">측정값</th>
+              <th scope="col">공차</th>
+              <th scope="col">편차</th>
+              <th scope="col">판정</th>
+            </tr>
+          </thead>
+          <tbody id="measure-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="status-line">시뮬레이션 데이터입니다. 실제 스캐너와 연결되어 있지 않습니다.</span>
+      <span class="status-right num">단위 mm · 해상도 0.020</span>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="js/station.js"></script>
+</body>
+</html>
