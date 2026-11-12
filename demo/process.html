@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>작업 공정 공유 · 시험 결선</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1218'/%3E%3Crect x='5' y='7' width='22' height='14' rx='2' fill='none' stroke='%233dbeff' stroke-width='1.6'/%3E%3Cpath d='M7 14h18' stroke='%23ff5a6a' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/process.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header panel">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3" y="6" width="26" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"></rect>
+          <path d="M6 14h20" stroke="#ff5d6c" stroke-width="1.5"></path>
+          <path d="M7 26h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          <circle cx="23" cy="26" r="2" fill="#1ed98a"></circle>
+        </svg>
+        <div>
+          <p class="brand-kicker">초고압 변압기 · 공장 현장 공유</p>
+          <h1>작업 공정 공유</h1>
+        </div>
+      </div>
+      <nav class="nav" aria-label="화면 이동">
+        <a href="index.html">치수 검사</a>
+        <a href="process.html" aria-current="page">공정 공유</a>
+      </nav>
+      <div class="header-meta">
+        <span class="plate">BAY-03</span>
+        <span class="meta-block"><span class="meta-k">라인</span><span class="meta-v">시험동 A</span></span>
+        <span class="meta-block"><span class="meta-k">교대</span><span class="meta-v">주간 A</span></span>
+        <span class="meta-block"><span class="meta-k">공유 범위</span><span class="meta-v">현장 전체</span></span>
+        <time id="clock" class="clock num">--:--:--</time>
+      </div>
+    </header>
+
+    <section class="stages panel" aria-label="공정 단계">
+      <div class="panel-label">
+        <h2>공정 흐름</h2>
+        <span class="count" id="active-count">진행 0</span>
+      </div>
+      <div id="stage-list" class="stage-list" role="tablist" aria-label="공정 단계"></div>
+    </section>
+
+    <section class="board panel" aria-labelledby="board-title">
+      <div class="board-head">
+        <div>
+          <p class="eyebrow" id="board-eyebrow">공정</p>
+          <h2 id="board-title">시험 결선</h2>
+          <p id="board-summary" class="board-summary"></p>
+        </div>
+        <div class="board-filters" role="group" aria-label="시험 상태 필터">
+          <button type="button" class="filter is-on" data-filter="all">전체</button>
+          <button type="button" class="filter" data-filter="active">진행 중</button>
+          <button type="button" class="filter" data-filter="hold">보류</button>
+          <button type="button" class="filter" data-filter="done">완료</button>
+        </div>
+      </div>
+      <div id="job-list" class="job-list" role="listbox" aria-label="시험 결선 작업"></div>
+    </section>
+
+    <aside class="detail panel" aria-live="polite">
+      <div class="panel-label">
+        <h2>진행 시험 상세</h2>
+        <span id="detail-status" class="chip">선택</span>
+      </div>
+      <div id="detail-empty" class="detail-empty">
+        <p>왼쪽에서 시험 결선 작업을 선택하면<br>설명과 위험 요소가 표시됩니다.</p>
+      </div>
+      <div id="detail-body" class="detail-body" hidden>
+        <div class="detail-hero">
+          <p class="detail-kicker" id="detail-bay"></p>
+          <h3 id="detail-name"></h3>
+          <p id="detail-unit" class="detail-unit"></p>
+        </div>
+        <dl class="meta-grid">
+          <div>
+            <dt>시험 종류</dt>
+            <dd id="detail-type"></dd>
+          </div>
+          <div>
+            <dt>담당</dt>
+            <dd id="detail-owner"></dd>
+          </div>
+          <div>
+            <dt>시작</dt>
+            <dd id="detail-started" class="num"></dd>
+          </div>
+          <div>
+            <dt>예상 종료</dt>
+            <dd id="detail-eta" class="num"></dd>
+          </div>
+        </dl>
+        <section class="block">
+          <h4>시험 설명</h4>
+          <p id="detail-desc"></p>
+          <ul id="detail-steps" class="steps"></ul>
+        </section>
+        <section class="block block-risk">
+          <div class="block-head">
+            <h4>위험 요소</h4>
+            <span id="risk-level" class="risk-badge">주의</span>
+          </div>
+          <ul id="detail-risks" class="risks"></ul>
+        </section>
+        <section class="block">
+          <h4>통제 조치</h4>
+          <ul id="detail-controls" class="controls"></ul>
+        </section>
+      </div>
+    </aside>
+
+    <footer class="status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="status-line">시뮬레이션 데이터입니다. 현장 MES와 연결되어 있지 않습니다.</span>
+      <span class="status-right">시험 결선 · 설명·위험 요소 공유</span>
+    </footer>
+  </div>
+  <script src="js/process.js"></script>
+</body>
+</html>
